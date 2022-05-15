@@ -9,12 +9,8 @@ public class Bill {
 		
 		try
 		{
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			//con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/egbilldb", "root", "");
-			//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/egbilldb", "root", "root");
-			
+			Class.forName("com.mysql.cj.jdbc.Driver");		
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3308/egbilldb", "root", "");
-			//jdbc:mysql://localhost:3308/egbilldb
 			System.out.println("Connected!!");
 		}
 		catch (Exception e) {
@@ -34,7 +30,9 @@ public class Bill {
 			Connection con = connect();
 			
 			if (con == null)
-			{return  "Error while connecting to the database for inserting.";}
+			{
+				return  "Error while connecting to the database for inserting.";
+			}
 			
 			
 			// create a prepared statement			
@@ -42,12 +40,11 @@ public class Bill {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			 // binding values
-			 preparedStmt.setString(0, billId); 
-			 preparedStmt.setString(1, accountNo);
-			 preparedStmt.setString(2, dueAmount);
-			 preparedStmt.setString(3, totalAmount); 
-			 
-		
+			 preparedStmt.setString(1, billId); 
+			 preparedStmt.setString(2, accountNo);
+			 preparedStmt.setString(3, dueAmount);
+			 preparedStmt.setString(4, totalAmount); 
+	
 			 
 			// execute the statement			 
 			 preparedStmt.execute(); 
@@ -59,7 +56,7 @@ public class Bill {
 		}
 		catch (Exception e) {
 			  
-			 output = "{\"status\":\"error\", \"data\":\"Error while Inserting the Power Consumption.\"}";
+			 output = "{\"status\":\"error\", \"data\":\"Error while Inserting to the Bill.\"}";
 			 System.err.println(e.getMessage()); 
 		}
 		
@@ -149,10 +146,10 @@ public class Bill {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			 // binding values
-			 preparedStmt.setString(0,accountNo); 
-			 preparedStmt.setString(1, dueAmount); 
-			 preparedStmt.setString(2, totalAmount); 	
-			 preparedStmt.setString(3, billId); 
+			 preparedStmt.setString(1,accountNo); 
+			 preparedStmt.setString(2, dueAmount); 
+			 preparedStmt.setString(3, totalAmount); 	
+			 preparedStmt.setString(4, billId); 
 			 
 			// execute the statement			 
 			 preparedStmt.execute(); 
