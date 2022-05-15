@@ -42,10 +42,10 @@ public class Bill {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			 // binding values
-			 preparedStmt.setString(1, billId); 
-			 preparedStmt.setString(2, accountNo);
-			 preparedStmt.setString(3, dueAmount);
-			 preparedStmt.setString(4, totalAmount); 
+			 preparedStmt.setString(0, billId); 
+			 preparedStmt.setString(1, accountNo);
+			 preparedStmt.setString(2, dueAmount);
+			 preparedStmt.setString(3, totalAmount); 
 			 
 		
 			 
@@ -104,7 +104,8 @@ public class Bill {
 				
 				 
 				 // Add into the HTML table
-				 output += "<tr><td> <input id='hididUpdate' name='hididUpdate' type='hidden' value=" + billId + ">" + billId + "</td>"; 
+				 //output += "<tr>"; 
+				 output += "<tr><td>" + billId + "</td>";
 				 output += "<td>" + accountNo + "</td>";
 				 output += "<td>" + dueAmount + "</td>"; 
 				 output += "<td>" + totalAmount + "</td>"; 
@@ -112,7 +113,7 @@ public class Bill {
 				 
 				 // buttons
 				 output += "<td><input id='btnUpdate'  name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary' ></td>"
-							+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-idpower_consumption='"
+							+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-billId='"
 							+ billId + "'>" + "</td></tr>";
 				
 			 }
@@ -148,10 +149,10 @@ public class Bill {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			 // binding values
-			 preparedStmt.setString(1,accountNo); 
-			 preparedStmt.setString(2, dueAmount); 
-			 preparedStmt.setString(3, totalAmount); 	
-			 preparedStmt.setString(4, billId); 
+			 preparedStmt.setString(0,accountNo); 
+			 preparedStmt.setString(1, dueAmount); 
+			 preparedStmt.setString(2, totalAmount); 	
+			 preparedStmt.setString(3, billId); 
 			 
 			// execute the statement			 
 			 preparedStmt.execute(); 
@@ -184,7 +185,7 @@ public class Bill {
 			 PreparedStatement preparedStmt = con.prepareStatement(query); 
 			 
 			 // binding values
-			 preparedStmt.setString(1, billId);
+			 preparedStmt.setString(0, billId);
 			 
 			 // execute the statement
 			 preparedStmt.execute(); 
