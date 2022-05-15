@@ -75,10 +75,10 @@ if (status == "success")
 //UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
- $("#billId").val($(this).closest("tr").find('td:eq(0)').text());
- $("#accountNo").val($(this).closest("tr").find('td:eq(1)').text());
- $("#dueAmount").val($(this).closest("tr").find('td:eq(2)').text()); 
- $("#totalAmount").val($(this).closest("tr").find('td:eq(3)').text());
+ $("#billId").val($(this).closest("tr").find('td:eq(1)').text());
+ $("#accountNo").val($(this).closest("tr").find('td:eq(2)').text());
+ $("#dueAmount").val($(this).closest("tr").find('td:eq(3)').text()); 
+ $("#totalAmount").val($(this).closest("tr").find('td:eq(4)').text());
 
 });
 

@@ -38,7 +38,7 @@ public class Bill {
 			
 			
 			// create a prepared statement			
-			String query = "  insert into bill (`billId`,`accountNo`,`dueAmount`,`totalAmount`)" + " values (?, ?, ?, ?)";			
+			String query = "insert into bill (`billId`,`accountNo`,`dueAmount`,`totalAmount`)" + " values (?, ?, ?, ?)";			
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
 			 // binding values
@@ -150,8 +150,8 @@ public class Bill {
 			 // binding values
 			 preparedStmt.setString(1,accountNo); 
 			 preparedStmt.setString(2, dueAmount); 
-			 preparedStmt.setString(3, totalAmount); 			 
-			 preparedStmt.setInt(4, Integer.parseInt(billId));
+			 preparedStmt.setString(3, totalAmount); 	
+			 preparedStmt.setString(4, billId); 
 			 
 			// execute the statement			 
 			 preparedStmt.execute(); 
@@ -162,7 +162,7 @@ public class Bill {
 //			 output = "Updated successful"; 
 		}
 		catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\":\"Error while Updating the Power Consumption.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while Updating the Bill.\"}";
 			 
 			 System.err.println(e.getMessage()); 
 		}
@@ -184,7 +184,7 @@ public class Bill {
 			 PreparedStatement preparedStmt = con.prepareStatement(query); 
 			 
 			 // binding values
-			 preparedStmt.setInt(1, Integer.parseInt(billId)); 
+			 preparedStmt.setString(1, billId);
 			 
 			 // execute the statement
 			 preparedStmt.execute(); 
@@ -195,7 +195,7 @@ public class Bill {
 		 }
 		 catch (Exception e) 
 		 { 
-			 output = "{\"status\":\"error\", \"data\":\"Error while Deleting the Consumption.\"}";
+			 output = "{\"status\":\"error\", \"data\":\"Error while Deleting the Bill.\"}";
 			 System.err.println(e.getMessage()); 
 		 } 
 		 

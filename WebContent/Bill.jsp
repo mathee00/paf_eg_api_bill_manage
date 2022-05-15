@@ -19,7 +19,7 @@
 			box-sizing: border-box;
 		}
 		.body{
-			background-color: #32312f;
+			background-color: white;
 			font-family: sans-serif;
 		}
 		.table-container{
@@ -38,7 +38,7 @@
 			margin-top: 50px;
 		}
 		.table thead{
-			background-color: #76030f;
+			background-color: blue;
 		}
 		.table thead tr th{
 			font-size: 14px;
@@ -55,16 +55,19 @@
 			font-size: 14px;
 			font-weight: normal;
 			letter-spacing: 0.35px;
-			color: #f1f1f1;
-			background-color: #3c3f44;
+			color: black;
+			background-color: white;
 			padding: 8px;
 			text-align: center;
-			border:1px solid #dee2e685;
+			border:1px solid black;
 		}
-
-		#btn-record{
-			margin-left: 85%;
+		
+		#btnSave{
+			width: 100px;
+			height: 45px;
+			margin-top: 100px;
 		}
+		
 	</style>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
 <script src="Components/jquery-3.2.1.min.js"></script>
@@ -95,9 +98,9 @@
     <input type="text" name="units" id="totalAmount" name="totalAmount" class="form-control" placeholder="Total Amount" />      
   </div>
   
-  
+  <br>
  <input id="btnSave" name="btnSave" type="button" value="Save"
-			class="btn btn-primary"/> <input type="hidden"
+			class="btn btn-success"/> <input type="hidden"
 				id="billId" name="billId" value=""/>
   
 </form>
